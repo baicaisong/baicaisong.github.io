@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/03/26/5c999b251c2cd.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/26/5c999b74759bb.png">
 <meta property="article:published_time" content="2019-03-05T03:41:36.000Z">
-<meta property="article:modified_time" content="2021-02-21T11:50:42.477Z">
+<meta property="article:modified_time" content="2021-02-21T11:58:39.026Z">
 <meta property="article:author" content="Song">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2019/03/26/5c99871cdacfe.png">
@@ -186,7 +186,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-21 19:50:42" itemprop="dateModified" datetime="2021-02-21T19:50:42+08:00">2021-02-21</time>
+                <time title="Modified: 2021-02-21 19:58:39" itemprop="dateModified" datetime="2021-02-21T19:58:39+08:00">2021-02-21</time>
               </span>
 
           
@@ -285,7 +285,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- name: Checkout</span><br><span class="line">  uses: actions&#x2F;checkout@v2</span><br></pre></td></tr></table></figure>
 <p>不带 with 参数时默认操作当前仓库，此时将此仓库 checkout 到容器中</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- name: Checkout theme repo</span><br><span class="line">  uses: actions&#x2F;checkout@v2</span><br><span class="line">  with:</span><br><span class="line">    repository: $&#123;&#123; env.THEME_REPO &#125;&#125;</span><br><span class="line">    ref: $&#123;&#123; env.THEME_BRANCH &#125;&#125;</span><br><span class="line">    path: themes&#x2F;next</span><br></pre></td></tr></table></figure>
-<p>因为此仓库中的 theme 是 git clone 下来的，所以还要复原 theme/next 中的代码。<br>此命令的意思为将第三方仓库 <code>git@github.com:theme-next/hexo-theme-next.git</code> 的 master 分支 checkout 到容器 themes/next 下。</p>
+<p>因为此仓库中的 theme 是 git clone 下来的，所以还要复原 theme/next 中的代码。<br>此命令的意思为将第三方仓库 <code>git@github.com:theme-next/hexo-theme-next.git</code> 的 master 分支 checkout 到容器 themes/next 下。<code>Checkout deploy repo</code>同理</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- name: Use Node.js $&#123;&#123; matrix.node_version &#125;&#125;</span><br><span class="line">  uses: actions&#x2F;setup-node@v1</span><br><span class="line">  with:</span><br><span class="line">    node-version: $&#123;&#123; matrix.node_version &#125;&#125;</span><br></pre></td></tr></table></figure>
 <p>安装 Node.js 版本 v14 到容器中</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- name: Configuration environment</span><br><span class="line">  env:</span><br><span class="line">    HEXO_DEPLOY_PRI: $&#123;&#123;secrets.HEXO_DEPLOY_PRI&#125;&#125;</span><br><span class="line">  run: |</span><br><span class="line">    mkdir -p ~&#x2F;.ssh&#x2F;</span><br><span class="line">    echo &quot;$HEXO_DEPLOY_PRI&quot; &gt; ~&#x2F;.ssh&#x2F;id_ed25519</span><br><span class="line">    chmod 600 ~&#x2F;.ssh&#x2F;id_ed25519</span><br><span class="line">    ssh-keyscan github.com &gt;&gt; ~&#x2F;.ssh&#x2F;known_hosts</span><br><span class="line">    git config --global user.name $GIT_USER</span><br><span class="line">    git config --global user.email $GIT_EMAIL</span><br><span class="line">    cp _config.theme.yml themes&#x2F;next&#x2F;_config.yml</span><br></pre></td></tr></table></figure>
