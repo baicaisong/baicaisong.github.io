@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="环境 git node.js hexomkdir hexo 新建文件夹cd hexoyarn global add hexo 或 npm i -g hexo 全局安装 hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用hexo和GitHub Pages 来建立自己的博客">
+<meta property="og:url" content="http://example.com/2019/03/05/new-blog/index.html">
+<meta property="og:site_name" content="宋宋的小天地">
+<meta property="og:description" content="环境 git node.js hexomkdir hexo 新建文件夹cd hexoyarn global add hexo 或 npm i -g hexo 全局安装 hexo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2019/03/26/5c99871cdacfe.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/26/5c9989508beba.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/26/5c999ae043a1b.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/26/5c999b251c2cd.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/26/5c999b74759bb.png">
+<meta property="article:published_time" content="2019-03-05T03:41:36.000Z">
+<meta property="article:modified_time" content="2021-02-21T11:50:42.477Z">
+<meta property="article:author" content="Song">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2019/03/26/5c99871cdacfe.png">
+
+<link rel="canonical" href="http://example.com/2019/03/05/new-blog/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>用hexo和GitHub Pages 来建立自己的博客 | 宋宋的小天地</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">宋宋的小天地</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/03/05/new-blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Song">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宋宋的小天地">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          用hexo和GitHub Pages 来建立自己的博客
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-03-05 11:41:36" itemprop="dateCreated datePublished" datetime="2019-03-05T11:41:36+08:00">2019-03-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-21 19:50:42" itemprop="dateModified" datetime="2021-02-21T19:50:42+08:00">2021-02-21</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li>git</li>
+<li>node.js</li>
+<li>hexo<br><code>mkdir hexo</code> 新建文件夹<br><code>cd hexo</code><br><code>yarn global add hexo</code> 或 <code>npm i -g hexo</code> 全局安装 hexo</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="创建本地文件"><a href="#创建本地文件" class="headerlink" title="创建本地文件"></a>创建本地文件</h2><ol>
+<li><code>hexo init</code> 初始化一系列文件</li>
+<li><code>hexo g</code> 生成静态页面</li>
+<li><code>hexo s</code> 启动本地服务<br>在网页输入地址 <code>localhost:4000</code> 就可以看到本地的网页啦<br><img src="https://i.loli.net/2019/03/26/5c99871cdacfe.png" alt="preview"></li>
+<li><code>hexo new &quot;new-page&quot;</code> 创建一篇文章</li>
+<li><code>&lt;!--more--&gt;</code>标签可以使文章在主页中只展示前半部分</li>
+</ol>
+<h2 id="使用主题"><a href="#使用主题" class="headerlink" title="使用主题"></a>使用主题</h2><ol>
+<li><code>git clone https://github.com/theme-next/hexo-theme-next themes/next</code> 下载主题</li>
+<li>修改项目配置文件 <code>_config.yml</code> 中的 <code>theme: next</code> 选择此主题</li>
+<li>修改主题配置文件 <code>theme/next/_config.yml</code> 中的 <code>scheme: Mist</code> 选择喜欢的外观</li>
+<li>代码块样式美化：<br>想要 Mac Panel 风格的代码块样式，NexT 自带了。<br>修改主题配置文件 <code>theme/next/_config.yml</code> 中的 <code>codeblock.copy_button.style: mac</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const x &#x3D; 1;</span><br></pre></td></tr></table></figure>
+<h2 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h2><ol>
+<li><p>新建一个仓库,仓库名必须为 <code>[yourname].github.io</code><br><img src="https://i.loli.net/2019/03/26/5c9989508beba.png" alt="repo"></p>
+</li>
+<li><p>新增 SSH 密钥到 GitHub 帐户: <a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">教程</a></p>
+</li>
+<li><p>修改项目配置文件 <code>_config.yml</code> 中的内容</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line"> type: git</span><br><span class="line"> repo: git@github.com:yourname&#x2F;yourname.github.io.git</span><br><span class="line"> branch: master</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>上传到 github<br>安装发布插件:<code>yarn add hexo-deployer-git</code>或<code>npm install hexo-deployer-git --save</code><br>执行提交：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>修改<code>package.json</code>文件，scripts 下加一行命令：<br><code>&quot;d&quot;: &quot;hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy&quot;</code><br>每次执行<code>yarn d</code>，就等于执行第四步中提交命令。</li>
+</ol>
+<h2 id="使用-GitHub-Actions-实现自动部署"><a href="#使用-GitHub-Actions-实现自动部署" class="headerlink" title="使用 GitHub Actions 实现自动部署"></a>使用 GitHub Actions 实现自动部署</h2><h3 id="为原代码新建一个仓库："><a href="#为原代码新建一个仓库：" class="headerlink" title="为原代码新建一个仓库："></a>为原代码新建一个仓库：</h3><p>仓库<code>[yourname].github.io.git</code>中只保存编译后的文件，所以需要再建一个仓库来保存原 markdown 文件.<br>新建一个仓库名为 <code>blog</code> ,把源代码 push 到此仓库</p>
+<h3 id="配置密钥"><a href="#配置密钥" class="headerlink" title="配置密钥"></a>配置密钥</h3><p>将之前关联到 github 的 ssh 密钥分别存入两个仓库的 secret 中</p>
+<ol>
+<li><code>/blog/settings/secrets</code> 下 <code>New secret</code></li>
+</ol>
+<ul>
+<li>Name :<code>HEXO_DEPLOY_PRI</code></li>
+<li>Vaule : <code>cat ~/.ssh/id_ed25519</code>里的数据</li>
+</ul>
+<ol start="2">
+<li><code>/yourname.github.io/settings/secrets</code>下 <code>New secret</code></li>
+</ol>
+<ul>
+<li>Name :<code>HEXO_DEPLOY_PUB</code></li>
+<li>Vaule : <code>cat ~/.ssh/id_ed25519.pub</code>里的数据</li>
+</ul>
+<h3 id="编写-action-脚本"><a href="#编写-action-脚本" class="headerlink" title="编写 action 脚本"></a>编写 action 脚本</h3><ol>
+<li>在 blog 仓库根目录下创建 <code>.github/workflows/deploy.yml</code> 文件，内容如下:</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">name: Hexo Deploy CI</span><br><span class="line"></span><br><span class="line">on:</span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"></span><br><span class="line">env:</span><br><span class="line">  GIT_USER: baicaisong</span><br><span class="line">  GIT_EMAIL: im.jwsong@gmail.com</span><br><span class="line">  THEME_REPO: theme-next&#x2F;hexo-theme-next</span><br><span class="line">  THEME_BRANCH: master</span><br><span class="line">  DEPLOY_REPO: baicaisong&#x2F;baicaisong.github.io</span><br><span class="line">  DEPLOY_BRANCH: master</span><br><span class="line"></span><br><span class="line">jobs:</span><br><span class="line">  build:</span><br><span class="line">    name: Build on node $&#123;&#123; matrix.node_version &#125;&#125; and $&#123;&#123; matrix.os &#125;&#125;</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    strategy:</span><br><span class="line">      matrix:</span><br><span class="line">        os: [ubuntu-latest]</span><br><span class="line">        node_version: [14.x]</span><br><span class="line"></span><br><span class="line">    steps:</span><br><span class="line">      - name: Checkout</span><br><span class="line">        uses: actions&#x2F;checkout@v2</span><br><span class="line"></span><br><span class="line">      - name: Checkout theme repo</span><br><span class="line">        uses: actions&#x2F;checkout@v2</span><br><span class="line">        with:</span><br><span class="line">          repository: $&#123;&#123; env.THEME_REPO &#125;&#125;</span><br><span class="line">          ref: $&#123;&#123; env.THEME_BRANCH &#125;&#125;</span><br><span class="line">          path: themes&#x2F;next</span><br><span class="line"></span><br><span class="line">      - name: Checkout deploy repo</span><br><span class="line">        uses: actions&#x2F;checkout@v2</span><br><span class="line">        with:</span><br><span class="line">          repository: $&#123;&#123; env.DEPLOY_REPO &#125;&#125;</span><br><span class="line">          ref: $&#123;&#123; env.DEPLOY_BRANCH &#125;&#125;</span><br><span class="line">          path: .deploy_git</span><br><span class="line"></span><br><span class="line">      - name: Use Node.js $&#123;&#123; matrix.node_version &#125;&#125;</span><br><span class="line">        uses: actions&#x2F;setup-node@v1</span><br><span class="line">        with:</span><br><span class="line">          node-version: $&#123;&#123; matrix.node_version &#125;&#125;</span><br><span class="line"></span><br><span class="line">      - name: Configuration environment</span><br><span class="line">        env:</span><br><span class="line">          HEXO_DEPLOY_PRI: $&#123;&#123;secrets.HEXO_DEPLOY_PRI&#125;&#125;</span><br><span class="line">        run: |</span><br><span class="line">          mkdir -p ~&#x2F;.ssh&#x2F;</span><br><span class="line">          echo &quot;$HEXO_DEPLOY_PRI&quot; &gt; ~&#x2F;.ssh&#x2F;id_ed25519</span><br><span class="line">          chmod 600 ~&#x2F;.ssh&#x2F;id_ed25519</span><br><span class="line">          ssh-keyscan github.com &gt;&gt; ~&#x2F;.ssh&#x2F;known_hosts</span><br><span class="line">          git config --global user.name $GIT_USER</span><br><span class="line">          git config --global user.email $GIT_EMAIL</span><br><span class="line">          cp _config.theme.yml themes&#x2F;next&#x2F;_config.yml</span><br><span class="line"></span><br><span class="line">      - name: Install dependencies</span><br><span class="line">        run: |</span><br><span class="line">          yarn</span><br><span class="line"></span><br><span class="line">      - name: Deploy hexo</span><br><span class="line">        run: |</span><br><span class="line">          yarn d</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>参数说明</p>
+<ul>
+<li>name: 名字</li>
+<li>on: 触发条件，此处指当 push master 分支时会执行</li>
+<li>env: 环境变量，会在 jobs 中调用</li>
+<li>jobs:任务列表。<ul>
+<li>name 任务名称</li>
+<li>runs-on 任务所需容器，可选值：ubuntu-latest、windows-latest、macos-latest。</li>
+<li>strategy</li>
+<li>steps 任务步骤</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>steps 说明</p>
+<ul>
+<li>name:步骤名</li>
+<li>uses:所要调用的第三方 Action，<a target="_blank" rel="noopener" href="https://github.com/actions">查看更多</a>。<br>此处用了两个 Action：<code>actions/checkout@v2</code>（实现 Checkout 一个 git 仓库到容器。） &amp; <code>actions/setup-node@v1</code>（可以配置容器 Node.js 环境）</li>
+<li>with:传给 Action 的参数，具体可以查看所使用 Action 的说明。</li>
+</ul>
+</li>
+<li><p>steps 详解</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- name: Checkout</span><br><span class="line">  uses: actions&#x2F;checkout@v2</span><br></pre></td></tr></table></figure>
+<p>不带 with 参数时默认操作当前仓库，此时将此仓库 checkout 到容器中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- name: Checkout theme repo</span><br><span class="line">  uses: actions&#x2F;checkout@v2</span><br><span class="line">  with:</span><br><span class="line">    repository: $&#123;&#123; env.THEME_REPO &#125;&#125;</span><br><span class="line">    ref: $&#123;&#123; env.THEME_BRANCH &#125;&#125;</span><br><span class="line">    path: themes&#x2F;next</span><br></pre></td></tr></table></figure>
+<p>因为此仓库中的 theme 是 git clone 下来的，所以还要复原 theme/next 中的代码。<br>此命令的意思为将第三方仓库 <code>git@github.com:theme-next/hexo-theme-next.git</code> 的 master 分支 checkout 到容器 themes/next 下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- name: Use Node.js $&#123;&#123; matrix.node_version &#125;&#125;</span><br><span class="line">  uses: actions&#x2F;setup-node@v1</span><br><span class="line">  with:</span><br><span class="line">    node-version: $&#123;&#123; matrix.node_version &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>安装 Node.js 版本 v14 到容器中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- name: Configuration environment</span><br><span class="line">  env:</span><br><span class="line">    HEXO_DEPLOY_PRI: $&#123;&#123;secrets.HEXO_DEPLOY_PRI&#125;&#125;</span><br><span class="line">  run: |</span><br><span class="line">    mkdir -p ~&#x2F;.ssh&#x2F;</span><br><span class="line">    echo &quot;$HEXO_DEPLOY_PRI&quot; &gt; ~&#x2F;.ssh&#x2F;id_ed25519</span><br><span class="line">    chmod 600 ~&#x2F;.ssh&#x2F;id_ed25519</span><br><span class="line">    ssh-keyscan github.com &gt;&gt; ~&#x2F;.ssh&#x2F;known_hosts</span><br><span class="line">    git config --global user.name $GIT_USER</span><br><span class="line">    git config --global user.email $GIT_EMAIL</span><br><span class="line">    cp _config.theme.yml themes&#x2F;next&#x2F;_config.yml</span><br></pre></td></tr></table></figure>
+<p>接着要还原本地的 configuration，在<code>~/.ssh</code>下的两个文件：</p>
+<ul>
+<li>id_ed25519:私钥，同配置在 repo blog 的 secrets</li>
+<li>known_hosts</li>
+</ul>
+<p>因为 theme/next 中的 config 是默认的，但是我们有改过配置。所以提前将 <code>theme/next/_config.yml</code> 复制到根目录下重命名为<code>_config.theme.yml</code>，此时此容器会更新主题配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- name: Install dependencies</span><br><span class="line">  run: |</span><br><span class="line">    yarn</span><br><span class="line"></span><br><span class="line">- name: Deploy hexo</span><br><span class="line">  run: |</span><br><span class="line">    yarn d</span><br></pre></td></tr></table></figure>
+<p>最后安装依赖并发布</p>
+<h2 id="使用个人域名"><a href="#使用个人域名" class="headerlink" title="使用个人域名"></a>使用个人域名</h2><ol>
+<li><p>先选择一个自己喜欢的域名购买（购买后需要实名认证）</p>
+</li>
+<li><p>认证成功后需要解析域名</p>
+</li>
+<li><p>点击解析<br><img src="https://i.loli.net/2019/03/26/5c999ae043a1b.png" alt="domain"></p>
+</li>
+<li><p>点击添加纪录<br><img src="https://i.loli.net/2019/03/26/5c999b251c2cd.png" alt="record"></p>
+</li>
+<li><p>记录类型选择 CNAME<br>记录值填写 github 的地址<br><img src="https://i.loli.net/2019/03/26/5c999b74759bb.png" alt="cname"></p>
+</li>
+<li><p>在本地博客文件夹中的 source 文件中新建一个 CNAME 文件，在里面写上你的域名,然后再部署一次 <code>yarn d</code></p>
+</li>
+<li><p>进入 github 项目，点击 settings，往下拉找到 github pages，在 custom domain 中填写你的域名并保存，成功后就可以通过你的域名进入个人网站了</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2019/04/19/react-2048/" rel="next" title="用react来编写2048游戏">
+      用react来编写2048游戏 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">创建本地文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%BB%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">使用主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-Pages"><span class="nav-number">4.</span> <span class="nav-text">GitHub Pages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-GitHub-Actions-%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2"><span class="nav-number">5.</span> <span class="nav-text">使用 GitHub Actions 实现自动部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E5%8E%9F%E4%BB%A3%E7%A0%81%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93%EF%BC%9A"><span class="nav-number">5.1.</span> <span class="nav-text">为原代码新建一个仓库：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%AF%86%E9%92%A5"><span class="nav-number">5.2.</span> <span class="nav-text">配置密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E5%86%99-action-%E8%84%9A%E6%9C%AC"><span class="nav-number">5.3.</span> <span class="nav-text">编写 action 脚本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D"><span class="nav-number">6.</span> <span class="nav-text">使用个人域名</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Song</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Song</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="202.快乐数非快乐数会形成环。 1234567891011121314var isHappy &#x3D; function (n) &amp;#123;  let exist &#x3D; new Map();  function nextN(num) &amp;#123;    let sum &#x3D; 0;    for (const cur of String(num)) &amp;#123;      s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode(201-∞)">
+<meta property="og:url" content="http://example.com/2020/07/28/leetcode-200/index.html">
+<meta property="og:site_name" content="宋宋的小天地">
+<meta property="og:description" content="202.快乐数非快乐数会形成环。 1234567891011121314var isHappy &#x3D; function (n) &amp;#123;  let exist &#x3D; new Map();  function nextN(num) &amp;#123;    let sum &#x3D; 0;    for (const cur of String(num)) &amp;#123;      s">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-28T06:41:02.000Z">
+<meta property="article:modified_time" content="2021-02-21T11:50:42.477Z">
+<meta property="article:author" content="Song">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2020/07/28/leetcode-200/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>leetcode(201-∞) | 宋宋的小天地</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">宋宋的小天地</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/07/28/leetcode-200/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Song">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宋宋的小天地">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          leetcode(201-∞)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-28 14:41:02" itemprop="dateCreated datePublished" datetime="2020-07-28T14:41:02+08:00">2020-07-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-21 19:50:42" itemprop="dateModified" datetime="2021-02-21T19:50:42+08:00">2021-02-21</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="202-快乐数"><a href="#202-快乐数" class="headerlink" title="202.快乐数"></a>202.快乐数</h2><p>非快乐数会形成环。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var isHappy &#x3D; function (n) &#123;</span><br><span class="line">  let exist &#x3D; new Map();</span><br><span class="line">  function nextN(num) &#123;</span><br><span class="line">    let sum &#x3D; 0;</span><br><span class="line">    for (const cur of String(num)) &#123;</span><br><span class="line">      sum +&#x3D; Number(cur) * Number(cur);</span><br><span class="line">    &#125;</span><br><span class="line">    if (sum &#x3D;&#x3D;&#x3D; 1) return true;</span><br><span class="line">    if (exist.get(sum)) return false;</span><br><span class="line">    exist.set(sum, true);</span><br><span class="line">    return nextN(sum);</span><br><span class="line">  &#125;</span><br><span class="line">  return nextN(n);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<h2 id="213-打家劫舍-II"><a href="#213-打家劫舍-II" class="headerlink" title="213.打家劫舍 II"></a>213.打家劫舍 II</h2><p>拆分成两个单排，不算第一个房间&amp;不算最后一个房间，方法 <code>rob1</code> 为题目 198 的解法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var rob1 &#x3D; function (nums) &#123;</span><br><span class="line">  const len &#x3D; nums.length;</span><br><span class="line">  if (len &#x3D;&#x3D;&#x3D; 0) return 0;</span><br><span class="line">  if (len &#x3D;&#x3D;&#x3D; 1) return nums[0];</span><br><span class="line">  if (len &#x3D;&#x3D;&#x3D; 2) return Math.max(nums[0], nums[1]);</span><br><span class="line">  let dp &#x3D; [nums[0], nums[1]];</span><br><span class="line">  let max &#x3D; Math.max(nums[0], nums[1]);</span><br><span class="line">  for (let i &#x3D; 2; i &lt; nums.length; i++) &#123;</span><br><span class="line">    const curTotal &#x3D; dp[0] + nums[i];</span><br><span class="line">    max &#x3D; Math.max(curTotal, dp[1]);</span><br><span class="line">    dp[0] &#x3D; Math.max(dp[1], dp[0]);</span><br><span class="line">    dp[1] &#x3D; curTotal;</span><br><span class="line">  &#125;</span><br><span class="line">  return max;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var rob &#x3D; function (nums) &#123;</span><br><span class="line">  const len &#x3D; nums.length;</span><br><span class="line">  if (len &#x3D;&#x3D;&#x3D; 0) return 0;</span><br><span class="line">  if (len &#x3D;&#x3D;&#x3D; 1) return nums[0];</span><br><span class="line">  if (len &#x3D;&#x3D;&#x3D; 2) return Math.max(nums[0], nums[1]);</span><br><span class="line">  return Math.max(rob1(nums.slice(1)), rob1(nums.slice(0, len - 1)));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="217-存在重复元素"><a href="#217-存在重复元素" class="headerlink" title="217.存在重复元素"></a>217.存在重复元素</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var containsDuplicate &#x3D; function (nums) &#123;</span><br><span class="line">  let map &#x3D; new Map();</span><br><span class="line">  for (const cur of nums) &#123;</span><br><span class="line">    if (map.get(cur)) return true;</span><br><span class="line">    map.set(cur, true);</span><br><span class="line">  &#125;</span><br><span class="line">  return false;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="219-存在重复元素-II"><a href="#219-存在重复元素-II" class="headerlink" title="219.存在重复元素 II"></a>219.存在重复元素 II</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var containsNearbyDuplicate &#x3D; function (nums, k) &#123;</span><br><span class="line">  if (nums.length &#x3D;&#x3D;&#x3D; 0) return false;</span><br><span class="line">  const map &#x3D; new Map();</span><br><span class="line">  for (const i in nums) &#123;</span><br><span class="line">    const cur &#x3D; nums[i];</span><br><span class="line">    const index &#x3D; map.get(cur);</span><br><span class="line">    if (index !&#x3D;&#x3D; undefined &amp;&amp; Number(i) - index &lt;&#x3D; k) return true;</span><br><span class="line">    map.set(cur, Number(i));</span><br><span class="line">  &#125;</span><br><span class="line">  return false;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="263-丑数"><a href="#263-丑数" class="headerlink" title="263.丑数"></a>263.丑数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var isUgly &#x3D; function (num) &#123;</span><br><span class="line">  if (num &#x3D;&#x3D;&#x3D; 1) return true;</span><br><span class="line">  if (num &#x3D;&#x3D;&#x3D; 0) return false;</span><br><span class="line">  while (num !&#x3D;&#x3D; 1) &#123;</span><br><span class="line">    if (num % 2 &#x3D;&#x3D;&#x3D; 0) num &#x2F;&#x3D; 2;</span><br><span class="line">    else if (num % 3 &#x3D;&#x3D;&#x3D; 0) num &#x2F;&#x3D; 3;</span><br><span class="line">    else if (num % 5 &#x3D;&#x3D;&#x3D; 0) num &#x2F;&#x3D; 5;</span><br><span class="line">    else return false;</span><br><span class="line">  &#125;</span><br><span class="line">  return true;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="268-缺失数字"><a href="#268-缺失数字" class="headerlink" title="268.缺失数字"></a>268.缺失数字</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var missingNumber &#x3D; function (nums) &#123;</span><br><span class="line">  const len &#x3D; nums.length;</span><br><span class="line">  let res &#x3D; 0;</span><br><span class="line">  for (let i &#x3D; 0; i &lt; len + 1; i++) &#123;</span><br><span class="line">    res ^&#x3D; i ^ (nums[i] || 0);</span><br><span class="line">  &#125;</span><br><span class="line">  return res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="322-零钱兑换"><a href="#322-零钱兑换" class="headerlink" title="322.零钱兑换"></a>322.零钱兑换</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var coinChange &#x3D; function (coins, amount) &#123;</span><br><span class="line">  let dp &#x3D; new Array(amount + 1).fill(amount + 1);</span><br><span class="line">  dp[0] &#x3D; 0;</span><br><span class="line">  for (let i &#x3D; 0; i &lt; dp.length; i++) &#123;</span><br><span class="line">    for (const coin of coins) &#123;</span><br><span class="line">      if (i - coin &lt; 0) continue;</span><br><span class="line">      dp[i] &#x3D; Math.min(dp[i], dp[i - coin] + 1);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return dp[amount] &#x3D;&#x3D;&#x3D; amount + 1 ? -1 : dp[amount];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="374-猜数字大小"><a href="#374-猜数字大小" class="headerlink" title="374.猜数字大小"></a>374.猜数字大小</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var guessNumber &#x3D; function (n) &#123;</span><br><span class="line">  let left &#x3D; 1;</span><br><span class="line">  let right &#x3D; n;</span><br><span class="line">  while (left &lt; right) &#123;</span><br><span class="line">    const mid &#x3D; getMid(left, right);</span><br><span class="line">    const res &#x3D; guess(mid);</span><br><span class="line">    if (res &#x3D;&#x3D;&#x3D; 1) &#123;</span><br><span class="line">      left &#x3D; mid + 1;</span><br><span class="line">    &#125; else if (res &#x3D;&#x3D;&#x3D; -1) &#123;</span><br><span class="line">      right &#x3D; mid - 1;</span><br><span class="line">    &#125; else return mid;</span><br><span class="line">  &#125;</span><br><span class="line">  return left;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var getMid &#x3D; function (left, right) &#123;</span><br><span class="line">  const len &#x3D; left + right;</span><br><span class="line">  if (len % 2 &#x3D;&#x3D;&#x3D; 0) return len &#x2F; 2;</span><br><span class="line">  return (len - 1) &#x2F; 2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="389-找不同"><a href="#389-找不同" class="headerlink" title="389.找不同"></a>389.找不同</h2><p>异或位运算，字母要转换为 code 码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var findTheDifference &#x3D; function (s, t) &#123;</span><br><span class="line">  let res &#x3D; 0;</span><br><span class="line">  for (let cur of s) &#123;</span><br><span class="line">    res ^&#x3D; cur.charCodeAt();</span><br><span class="line">  &#125;</span><br><span class="line">  for (let cur of t) &#123;</span><br><span class="line">    res ^&#x3D; cur.charCodeAt();</span><br><span class="line">  &#125;</span><br><span class="line">  return String.fromCharCode(res);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="397-整数替换"><a href="#397-整数替换" class="headerlink" title="397.整数替换"></a>397.整数替换</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var integerReplacement &#x3D; function (n) &#123;</span><br><span class="line">  if (n &#x3D;&#x3D;&#x3D; 1) return 0;</span><br><span class="line">  if (n &#x3D;&#x3D;&#x3D; 2) return 1;</span><br><span class="line">  if (n % 2 &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">    return integerReplacement(n &#x2F; 2) + 1;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return Math.min(</span><br><span class="line">      integerReplacement(n - 1) + 1,</span><br><span class="line">      integerReplacement(n + 1) + 1</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="400-第-N-个数字"><a href="#400-第-N-个数字" class="headerlink" title="400.第 N 个数字"></a>400.第 N 个数字</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var findNthDigit &#x3D; function (n) &#123;</span><br><span class="line">  let z &#x3D; 1;</span><br><span class="line">  let preLen &#x3D; 0;</span><br><span class="line">  let i &#x3D; 1;</span><br><span class="line">  for (i; i &lt; 32; i++) &#123;</span><br><span class="line">    let curLen &#x3D; 9 * z * i;</span><br><span class="line">    const total &#x3D; preLen + curLen;</span><br><span class="line">    if (n &lt;&#x3D; total) &#123;</span><br><span class="line">      break;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      preLen &#x3D; total;</span><br><span class="line">    &#125;</span><br><span class="line">    z *&#x3D; 10;</span><br><span class="line">  &#125;</span><br><span class="line">  const rest &#x3D; n - preLen;</span><br><span class="line">  const t &#x3D; Math.ceil(rest &#x2F; i) - 1 + z;</span><br><span class="line">  let index;</span><br><span class="line">  if (rest % i &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">    index &#x3D; i - 1;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    index &#x3D; (rest % i) - 1;</span><br><span class="line">  &#125;</span><br><span class="line">  const res &#x3D; Number(String(t)[index]);</span><br><span class="line">  return res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="454-四数相加-II"><a href="#454-四数相加-II" class="headerlink" title="454.四数相加 II"></a>454.四数相加 II</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var fourSumCount &#x3D; function(A, B, C, D) &#123;</span><br><span class="line">  const length &#x3D; A.length;</span><br><span class="line">  let res &#x3D; 0;</span><br><span class="line">  let map &#x3D; &#123;&#125;;</span><br><span class="line">  for (let i &#x3D; 0; i &lt; length; i++) &#123;</span><br><span class="line">    const a &#x3D; A[i];</span><br><span class="line">    for (let j &#x3D; 0; j &lt; length; j++) &#123;</span><br><span class="line">      const b &#x3D; B[j];</span><br><span class="line">      const sum &#x3D; a + b;</span><br><span class="line">      if (map[sum]) &#123;</span><br><span class="line">        map[sum].push([i, j]);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        map[sum] &#x3D; [[i, j]];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  for (let i &#x3D; 0; i &lt; length; i++) &#123;</span><br><span class="line">    const c &#x3D; C[i];</span><br><span class="line">    for (let j &#x3D; 0; j &lt; length; j++) &#123;</span><br><span class="line">      const d &#x3D; D[j];</span><br><span class="line">      const sum &#x3D; c + d;</span><br><span class="line">      if (map[-sum]) &#123;</span><br><span class="line">        res +&#x3D; map[-sum].length;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="495-提莫攻击"><a href="#495-提莫攻击" class="headerlink" title="495.提莫攻击"></a>495.提莫攻击</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var findPoisonedDuration &#x3D; function (timeSeries, duration) &#123;</span><br><span class="line">  if (timeSeries.length &#x3D;&#x3D;&#x3D; 0) return 0;</span><br><span class="line">  let res &#x3D; 0;</span><br><span class="line">  for (let i &#x3D; 1; i &lt; timeSeries.length; i++) &#123;</span><br><span class="line">    const cur &#x3D; timeSeries[i];</span><br><span class="line">    const pre &#x3D; timeSeries[i - 1];</span><br><span class="line">    if (cur - pre &gt;&#x3D; duration) &#123;</span><br><span class="line">      res +&#x3D; duration;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      res +&#x3D; cur - pre;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return res + duration;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="516-最长回文子序列"><a href="#516-最长回文子序列" class="headerlink" title="516.最长回文子序列"></a>516.最长回文子序列</h2><p>写法 1:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var longestPalindromeSubseq &#x3D; function (s) &#123;</span><br><span class="line">  const len &#x3D; s.length;</span><br><span class="line">  if (!s || len &#x3D;&#x3D;&#x3D; 0) return &quot;&quot;;</span><br><span class="line">  let dp &#x3D; [];</span><br><span class="line">  for (let i &#x3D; len - 1; i &gt;&#x3D; 0; i--) &#123;</span><br><span class="line">    dp[i] &#x3D; [];</span><br><span class="line">    dp[i][i] &#x3D; 1;</span><br><span class="line">    for (let j &#x3D; i + 1; j &lt; len; j++) &#123;</span><br><span class="line">      if (s[i] &#x3D;&#x3D;&#x3D; s[j]) &#123;</span><br><span class="line">        if (j - i &#x3D;&#x3D;&#x3D; 1) dp[i][j] &#x3D; 2;</span><br><span class="line">        else dp[i][j] &#x3D; dp[i + 1][j - 1] + 2;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        dp[i][j] &#x3D; Math.max(dp[i][j - 1], dp[i + 1][j]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return dp[0][len - 1];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>写法 2:降维：(?)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var longestPalindromeSubseq &#x3D; function (s) &#123;</span><br><span class="line">  let length &#x3D; s.length;</span><br><span class="line"></span><br><span class="line">  let dp &#x3D; new Array(length).fill(1);</span><br><span class="line"></span><br><span class="line">  for (let i &#x3D; length - 1; i &gt;&#x3D; 0; i--) &#123;</span><br><span class="line">    let prev &#x3D; 0;</span><br><span class="line">    for (let j &#x3D; i + 1; j &lt; length; j++) &#123;</span><br><span class="line">      let tmp &#x3D; dp[j];</span><br><span class="line">      if (s[i] &#x3D;&#x3D;&#x3D; s[j]) &#123;</span><br><span class="line">        dp[j] &#x3D; prev + 2;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        dp[j] &#x3D; Math.max(dp[j], dp[j - 1]);</span><br><span class="line">      &#125;</span><br><span class="line">      prev &#x3D; tmp;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return dp[length - 1];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="605-种花问题"><a href="#605-种花问题" class="headerlink" title="605.种花问题"></a>605.种花问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var canPlaceFlowers &#x3D; function (flowerbed, n) &#123;</span><br><span class="line">  let last &#x3D; -2;</span><br><span class="line">  let count &#x3D; 0;</span><br><span class="line">  for (let i &#x3D; 0; i &lt; flowerbed.length; i++) &#123;</span><br><span class="line">    if (flowerbed[i] &#x3D;&#x3D;&#x3D; 1) &#123;</span><br><span class="line">      last &#x3D; i;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      if (i &gt; last + 1 &amp;&amp; flowerbed[i + 1] !&#x3D;&#x3D; 1) &#123;</span><br><span class="line">        count++;</span><br><span class="line">        last &#x3D; i;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (count &gt;&#x3D; n) return true;</span><br><span class="line">  &#125;</span><br><span class="line">  return false;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="647-回文子串"><a href="#647-回文子串" class="headerlink" title="647.回文子串"></a>647.回文子串</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var countSubstrings &#x3D; function (s) &#123;</span><br><span class="line">  const len &#x3D; s.length;</span><br><span class="line">  if (!s || len &#x3D;&#x3D;&#x3D; 0) return &quot;&quot;;</span><br><span class="line">  let res &#x3D; 0;</span><br><span class="line">  let dp &#x3D; [];</span><br><span class="line">  for (let i &#x3D; len - 1; i &gt;&#x3D; 0; i--) &#123;</span><br><span class="line">    dp[i] &#x3D; [];</span><br><span class="line">    for (let j &#x3D; i; j &lt; len; j++) &#123;</span><br><span class="line">      if (j &#x3D;&#x3D;&#x3D; i) dp[i][j] &#x3D; true;</span><br><span class="line">      else if (j - i &#x3D;&#x3D;&#x3D; 1 &amp;&amp; s[i] &#x3D;&#x3D;&#x3D; s[j]) dp[i][j] &#x3D; true;</span><br><span class="line">      else if (dp[i + 1][j - 1] &amp;&amp; s[i] &#x3D;&#x3D;&#x3D; s[j]) dp[i][j] &#x3D; true;</span><br><span class="line"></span><br><span class="line">      if (dp[i][j]) &#123;</span><br><span class="line">        res++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="657-机器人能否返回原点"><a href="#657-机器人能否返回原点" class="headerlink" title="657.机器人能否返回原点"></a>657.机器人能否返回原点</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">var judgeCircle &#x3D; function (moves) &#123;</span><br><span class="line">  let row &#x3D; 0,</span><br><span class="line">    col &#x3D; 0;</span><br><span class="line">  for (const cur of moves) &#123;</span><br><span class="line">    switch (cur) &#123;</span><br><span class="line">      case &quot;R&quot;:</span><br><span class="line">        row++;</span><br><span class="line">        break;</span><br><span class="line">      case &quot;L&quot;:</span><br><span class="line">        row--;</span><br><span class="line">        break;</span><br><span class="line">      case &quot;U&quot;:</span><br><span class="line">        col++;</span><br><span class="line">        break;</span><br><span class="line">      case &quot;D&quot;:</span><br><span class="line">        col--;</span><br><span class="line">        break;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if (row &#x3D;&#x3D;&#x3D; 0 &amp;&amp; col &#x3D;&#x3D;&#x3D; 0) return true;</span><br><span class="line">  return false;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="680-验证回文字符串-Ⅱ"><a href="#680-验证回文字符串-Ⅱ" class="headerlink" title="680.验证回文字符串 Ⅱ"></a>680.验证回文字符串 Ⅱ</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">var validPalindrome &#x3D; function (s) &#123;</span><br><span class="line">  let left &#x3D; 0;</span><br><span class="line">  let right &#x3D; s.length - 1;</span><br><span class="line">  while (left &lt; right) &#123;</span><br><span class="line">    const a &#x3D; s[left];</span><br><span class="line">    const b &#x3D; s[right];</span><br><span class="line">    if (a !&#x3D;&#x3D; b) &#123;</span><br><span class="line">      if (</span><br><span class="line">        !isPalindrome(left + 1, right, s) &amp;&amp;</span><br><span class="line">        !isPalindrome(left, right - 1, s)</span><br><span class="line">      )</span><br><span class="line">        return false;</span><br><span class="line">      break;</span><br><span class="line">    &#125;</span><br><span class="line">    left++;</span><br><span class="line">    right--;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return true;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var isPalindrome &#x3D; function (left, right, str) &#123;</span><br><span class="line">  while (left &lt; right) &#123;</span><br><span class="line">    const a &#x3D; str[left];</span><br><span class="line">    const b &#x3D; str[right];</span><br><span class="line">    if (a !&#x3D;&#x3D; b) return false;</span><br><span class="line">    left++;</span><br><span class="line">    right--;</span><br><span class="line">  &#125;</span><br><span class="line">  return true;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="697-数组的度"><a href="#697-数组的度" class="headerlink" title="697.数组的度"></a>697.数组的度</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">var findShortestSubArray &#x3D; function (nums) &#123;</span><br><span class="line">  let maxCount &#x3D; 0;</span><br><span class="line">  let maxLen &#x3D; 0;</span><br><span class="line">  let map &#x3D; new Map();</span><br><span class="line">  for (let i &#x3D; 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">    const cur &#x3D; nums[i];</span><br><span class="line">    const val &#x3D; map.get(cur);</span><br><span class="line">    let count, len;</span><br><span class="line">    if (val) &#123;</span><br><span class="line">      count &#x3D; val[2] + 1;</span><br><span class="line">      len &#x3D; i - val[0] + 1;</span><br><span class="line">      map.set(cur, [val[0], i, count]);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      count &#x3D; 1;</span><br><span class="line">      len &#x3D; 1;</span><br><span class="line">      map.set(cur, [i, i, count]);</span><br><span class="line">    &#125;</span><br><span class="line">    if (count &gt; maxCount) &#123;</span><br><span class="line">      maxLen &#x3D; len;</span><br><span class="line">      maxCount &#x3D; count;</span><br><span class="line">    &#125; else if (count &#x3D;&#x3D;&#x3D; maxCount) &#123;</span><br><span class="line">      maxLen &#x3D; Math.min(maxLen, len);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return maxLen;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="784-字母大小写全排列"><a href="#784-字母大小写全排列" class="headerlink" title="784.字母大小写全排列"></a>784.字母大小写全排列</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var letterCasePermutation &#x3D; function (S) &#123;</span><br><span class="line">  let res &#x3D; [];</span><br><span class="line">  function recursion(track, pivot) &#123;</span><br><span class="line">    if (track.length &#x3D;&#x3D;&#x3D; S.length) &#123;</span><br><span class="line">      res.push(track);</span><br><span class="line">      return;</span><br><span class="line">    &#125;</span><br><span class="line">    const cur &#x3D; S[pivot];</span><br><span class="line">    if ((cur &gt;&#x3D; &quot;a&quot; &amp;&amp; cur &lt;&#x3D; &quot;z&quot;) || (cur &gt;&#x3D; &quot;A&quot; &amp;&amp; cur &lt;&#x3D; &quot;Z&quot;)) &#123;</span><br><span class="line">      const low &#x3D; cur.toLowerCase();</span><br><span class="line">      const up &#x3D; cur.toUpperCase();</span><br><span class="line">      recursion(track + low, pivot + 1);</span><br><span class="line">      recursion(track + up, pivot + 1);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      recursion(track + cur, pivot + 1);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  recursion(&quot;&quot;, 0);</span><br><span class="line">  return res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="852-山脉数组的峰顶索引"><a href="#852-山脉数组的峰顶索引" class="headerlink" title="852.山脉数组的峰顶索引"></a>852.山脉数组的峰顶索引</h2><p>二分法，见[题 162.寻找峰值]</p>
+<h2 id="973-最接近原点的-K-个点"><a href="#973-最接近原点的-K-个点" class="headerlink" title="973.最接近原点的 K 个点"></a>973.最接近原点的 K 个点</h2><p>本质是排序 points，取前 K 个，使用递归快排</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">var kClosest &#x3D; function (points, K) &#123;</span><br><span class="line">  let lenArr &#x3D; [];</span><br><span class="line">  for (const i in points) &#123;</span><br><span class="line">    const cur &#x3D; points[i];</span><br><span class="line">    const len &#x3D; cur[0] * cur[0] + cur[1] * cur[1];</span><br><span class="line">    lenArr.push(&#123; len, i: Number(i) &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  const newLenArr &#x3D; recursion(lenArr);</span><br><span class="line"></span><br><span class="line">  let n &#x3D; 0;</span><br><span class="line">  let res &#x3D; [];</span><br><span class="line">  while (n &lt; K) &#123;</span><br><span class="line">    const cur &#x3D; points[newLenArr[n].i];</span><br><span class="line">    res.push(cur);</span><br><span class="line">    n++;</span><br><span class="line">  &#125;</span><br><span class="line">  return res;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var recursion &#x3D; function (arr) &#123;</span><br><span class="line">  if (arr.length &lt;&#x3D; 1) return arr;</span><br><span class="line">  const base &#x3D; arr[0];</span><br><span class="line">  let left &#x3D; [];</span><br><span class="line">  let right &#x3D; [];</span><br><span class="line">  for (let i &#x3D; 1; i &lt; arr.length; i++) &#123;</span><br><span class="line">    const cur &#x3D; arr[i];</span><br><span class="line">    if (cur.len &lt; base.len) &#123;</span><br><span class="line">      left.push(cur);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      right.push(cur);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return recursion(left).concat([base]).concat(recursion(right));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>优化方法 1，当数量满足 K 时，不继续排序后半部分数组</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/11/leetcode/" rel="prev" title="leetcode(1-200)">
+      <i class="fa fa-chevron-left"></i> leetcode(1-200)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#202-%E5%BF%AB%E4%B9%90%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">202.快乐数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#213-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-II"><span class="nav-number">2.</span> <span class="nav-text">213.打家劫舍 II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#217-%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0"><span class="nav-number">3.</span> <span class="nav-text">217.存在重复元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#219-%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0-II"><span class="nav-number">4.</span> <span class="nav-text">219.存在重复元素 II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#263-%E4%B8%91%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">263.丑数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#268-%E7%BC%BA%E5%A4%B1%E6%95%B0%E5%AD%97"><span class="nav-number">6.</span> <span class="nav-text">268.缺失数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#322-%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2"><span class="nav-number">7.</span> <span class="nav-text">322.零钱兑换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#374-%E7%8C%9C%E6%95%B0%E5%AD%97%E5%A4%A7%E5%B0%8F"><span class="nav-number">8.</span> <span class="nav-text">374.猜数字大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#389-%E6%89%BE%E4%B8%8D%E5%90%8C"><span class="nav-number">9.</span> <span class="nav-text">389.找不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#397-%E6%95%B4%E6%95%B0%E6%9B%BF%E6%8D%A2"><span class="nav-number">10.</span> <span class="nav-text">397.整数替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#400-%E7%AC%AC-N-%E4%B8%AA%E6%95%B0%E5%AD%97"><span class="nav-number">11.</span> <span class="nav-text">400.第 N 个数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#454-%E5%9B%9B%E6%95%B0%E7%9B%B8%E5%8A%A0-II"><span class="nav-number">12.</span> <span class="nav-text">454.四数相加 II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#495-%E6%8F%90%E8%8E%AB%E6%94%BB%E5%87%BB"><span class="nav-number">13.</span> <span class="nav-text">495.提莫攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#516-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%BA%8F%E5%88%97"><span class="nav-number">14.</span> <span class="nav-text">516.最长回文子序列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#605-%E7%A7%8D%E8%8A%B1%E9%97%AE%E9%A2%98"><span class="nav-number">15.</span> <span class="nav-text">605.种花问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2"><span class="nav-number">16.</span> <span class="nav-text">647.回文子串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#657-%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%83%BD%E5%90%A6%E8%BF%94%E5%9B%9E%E5%8E%9F%E7%82%B9"><span class="nav-number">17.</span> <span class="nav-text">657.机器人能否返回原点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#680-%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E5%AD%97%E7%AC%A6%E4%B8%B2-%E2%85%A1"><span class="nav-number">18.</span> <span class="nav-text">680.验证回文字符串 Ⅱ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#697-%E6%95%B0%E7%BB%84%E7%9A%84%E5%BA%A6"><span class="nav-number">19.</span> <span class="nav-text">697.数组的度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#784-%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%B0%8F%E5%86%99%E5%85%A8%E6%8E%92%E5%88%97"><span class="nav-number">20.</span> <span class="nav-text">784.字母大小写全排列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#852-%E5%B1%B1%E8%84%89%E6%95%B0%E7%BB%84%E7%9A%84%E5%B3%B0%E9%A1%B6%E7%B4%A2%E5%BC%95"><span class="nav-number">21.</span> <span class="nav-text">852.山脉数组的峰顶索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#973-%E6%9C%80%E6%8E%A5%E8%BF%91%E5%8E%9F%E7%82%B9%E7%9A%84-K-%E4%B8%AA%E7%82%B9"><span class="nav-number">22.</span> <span class="nav-text">973.最接近原点的 K 个点</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Song</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Song</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
