@@ -176,7 +176,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-21 19:58:39" itemprop="dateModified" datetime="2021-02-21T19:58:39+08:00">2021-02-21</time>
+                <time title="Modified: 2021-02-22 10:01:26" itemprop="dateModified" datetime="2021-02-22T10:01:26+08:00">2021-02-22</time>
               </span>
 
           
@@ -191,7 +191,7 @@
 
       
           <h2 id="202-快乐数"><a href="#202-快乐数" class="headerlink" title="202.快乐数"></a>202.快乐数</h2><p>非快乐数会形成环。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var isHappy &#x3D; function (n) &#123;</span><br><span class="line">  let exist &#x3D; new Map();</span><br><span class="line">  function nextN(num) &#123;</span><br><span class="line">    let sum &#x3D; 0;</span><br><span class="line">    for (const cur of String(num)) &#123;</span><br><span class="line">      sum +&#x3D; Number(cur) * Number(cur);</span><br><span class="line">    &#125;</span><br><span class="line">    if (sum &#x3D;&#x3D;&#x3D; 1) return true;</span><br><span class="line">    if (exist.get(sum)) return false;</span><br><span class="line">    exist.set(sum, true);</span><br><span class="line">    return nextN(sum);</span><br><span class="line">  &#125;</span><br><span class="line">  return nextN(n);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isHappy = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> exist = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">nextN</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> cur <span class="keyword">of</span> <span class="built_in">String</span>(num)) &#123;</span><br><span class="line">      sum += <span class="built_in">Number</span>(cur) * <span class="built_in">Number</span>(cur);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (sum === <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (exist.get(sum)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    exist.set(sum, <span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">return</span> nextN(sum);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> nextN(n);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/07/28/leetcode-200/#more" rel="contents">
@@ -249,7 +249,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-21 19:58:39" itemprop="dateModified" datetime="2021-02-21T19:58:39+08:00">2021-02-21</time>
+                <time title="Modified: 2021-02-22 10:01:26" itemprop="dateModified" datetime="2021-02-22T10:01:26+08:00">2021-02-22</time>
               </span>
 
           
@@ -265,7 +265,7 @@
       
           <h2 id="1-两数之合"><a href="#1-两数之合" class="headerlink" title="1.两数之合"></a>1.两数之合</h2><p>遍历 nums，将 <code>nums[i],i</code> 作为键值对存入散列表 map 中；<br>同时比较差值 difference 是否存在于 map 中</p>
 <p>时间复杂度 O(n),空间复杂度 O(n)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var twoSum &#x3D; function(nums, target) &#123;</span><br><span class="line">  let map &#x3D; &#123;&#125;;</span><br><span class="line">  for (let i &#x3D; 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">    const key &#x3D; nums[i];</span><br><span class="line">    const difference &#x3D; target - key;</span><br><span class="line">    if (map[difference] !&#x3D;&#x3D; undefined) &#123;</span><br><span class="line">      return [map[difference], i];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      map[key] &#x3D; i;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span> (<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> map = &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> key = nums[i];</span><br><span class="line">    <span class="keyword">const</span> difference = target - key;</span><br><span class="line">    <span class="keyword">if</span> (map[difference] !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> [map[difference], i];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      map[key] = i;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/07/11/leetcode/#more" rel="contents">
@@ -323,7 +323,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-21 19:58:39" itemprop="dateModified" datetime="2021-02-21T19:58:39+08:00">2021-02-21</time>
+                <time title="Modified: 2021-02-22 10:01:26" itemprop="dateModified" datetime="2021-02-22T10:01:26+08:00">2021-02-22</time>
               </span>
 
           
@@ -399,7 +399,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-21 19:58:39" itemprop="dateModified" datetime="2021-02-21T19:58:39+08:00">2021-02-21</time>
+                <time title="Modified: 2021-02-22 10:01:26" itemprop="dateModified" datetime="2021-02-22T10:01:26+08:00">2021-02-22</time>
               </span>
 
           
