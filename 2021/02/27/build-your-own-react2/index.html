@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      754 字
+      794 字
     </span>
   
 
@@ -229,8 +229,15 @@
 <h2 id="选择-Babel-编译-JSX"><a href="#选择-Babel-编译-JSX" class="headerlink" title="选择 Babel 编译 JSX"></a>选择 Babel 编译 JSX</h2><blockquote>
 <p>如果你在使用 JSX 时，使用 React 以外的库，你可以使用 <a target="_blank" rel="noopener" href="https://babeljs.io/docs/en/babel-preset-react#importsource">importSource</a> 选项从该库中引入</p>
 </blockquote>
-<p>编译生成的 <code>_jsx</code> 会默认 <code>require(&quot;react/jsx-runtime&quot;)</code>,使用 babel <code>importSource:&#39;../runtime&#39;</code> 可以重定向为 <code>require(&quot;../runtime/jsx-runtime&quot;)</code> 以此来指向开发者自己的代码。<br>此特性 TypeScript 似乎没有提供，所以选择 Babel 来做 JSX 的编译</p>
-<h3 id="安装-Babel"><a href="#安装-Babel" class="headerlink" title="安装 Babel"></a>安装 Babel</h3><p><code>yarn add @babel/cli @babel/core @babel/plugin-transform-react-jsx @babel/preset-typescript</code></p>
+<p>编译生成的 <code>_jsx</code> 会默认 <code>require(&quot;react/jsx-runtime&quot;)</code>,使用 babel <code>importSource:&#39;../runtime&#39;</code> 可以重定向为 <code>require(&quot;../runtime/jsx-runtime&quot;)</code> 以此来指向开发者自己的代码。<br>此特性 TypeScript 似乎没有提供，所以这次选择 Babel 来做 JSX 的编译</p>
+<h3 id="安装-Babel"><a href="#安装-Babel" class="headerlink" title="安装 Babel"></a>安装 Babel</h3><p>安装以下依赖</p>
+<ul>
+<li>@babel/cli</li>
+<li>@babel/core</li>
+<li>@babel/plugin-transform-react-jsx ———— 将 JSX 转化_jsx()接受的参数</li>
+<li>@babel/preset-typescript ———— 仍然需要编译 ts 类型</li>
+</ul>
+<p><code>yarn add @babel/cli @babel/core @babel/plugin-transform-react-jsx @babel/preset-typescript</code></p>
 <blockquote>
 <p>在 React v17 之前，JSX 只能被转化为 <code>React.createElement</code></p>
 </blockquote>
