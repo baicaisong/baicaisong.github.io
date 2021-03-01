@@ -20,7 +20,7 @@
   <meta name="author" content="Song">
   <meta name="keywords" content="">
   
-  <title>用 TypeScript 实现 React （一）———— 从 HTML 开始 - 宋宋的小天地</title>
+  <title>用 TypeScript 实现 React （一）——— 从 HTML 开始 - 宋宋的小天地</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -141,7 +141,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="用 TypeScript 实现 React （一）———— 从 HTML 开始">
+            <span class="h2" id="subtitle" title="用 TypeScript 实现 React （一）——— 从 HTML 开始">
               
             </span>
 
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      827 字
+      844 字
     </span>
   
 
@@ -203,7 +203,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">用 TypeScript 实现 React （一）———— 从 HTML 开始</h1>
+            <h1 style="display: none">用 TypeScript 实现 React （一）——— 从 HTML 开始</h1>
             
               <p class="note note-info">
                 
@@ -218,7 +218,6 @@
 <h2 id="前提技能"><a href="#前提技能" class="headerlink" title="前提技能"></a>前提技能</h2><ul>
 <li>会使用命令行终端</li>
 <li>了解 TypeScript 和 React 的基本用法</li>
-<li>了解一点点算法，比如递归怎么写</li>
 </ul>
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
 <li><a target="_blank" rel="noopener" href="http://localhost:5000/2021/02/27/build-your-own-react/">从 HTML 开始</a></li>
@@ -226,9 +225,9 @@
 </ol>
 <p>以下是第一节的内容：从 HTML 开始</p>
 <h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><p>新建空文件夹，目录结构：<br>|– index.html<br>|– index.js</p>
-<p>用浏览器打开 index.html 可以得到一个页面，其中引入了一个脚本文件 index.js，调用它来使 HTML 的内容改变</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!--index.html--&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span>content<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;index.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// index.js</span><br><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;root&quot;</span>).innerHTML = <span class="hljs-string">&quot;&lt;h1&gt;hello world&lt;/h1&gt;&quot;</span>;<br></code></pre></td></tr></table></figure>
+<p>用浏览器打开 index.html 可以得到一个页面，其中引入了一个脚本文件 index.js，调用 DOM 方法来改变 HTML 的内容</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!--index.html--&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;index.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// index.js</span><br><span class="hljs-keyword">const</span> tag = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&quot;h1&quot;</span>);<br><span class="hljs-keyword">const</span> content = <span class="hljs-built_in">document</span>.createTextNode(<span class="hljs-string">&quot;hello world&quot;</span>);<br>tag.appendChild(content);<br><br><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;root&quot;</span>).appendChild(tag);<br></code></pre></td></tr></table></figure>
 <h2 id="实现-ReactDOM-render-方法"><a href="#实现-ReactDOM-render-方法" class="headerlink" title="实现 ReactDOM.render 方法"></a>实现 <code>ReactDOM.render</code> 方法</h2><ol>
 <li>如果用 <code>create-react-app</code> 新建一个项目，在项目的 src/index.js 文件中，有一个 <code>ReactDOM.render</code> 方法</li>
 </ol>
@@ -237,8 +236,7 @@
 <ol start="2">
 <li>新建一个方法 <code>reactDomRender</code> ,可接受两个参数 <code>(element, container)</code></li>
 </ol>
-<p>新建一个 index.ts 来使用 TypeScript：</p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reactDomRender</span>(<span class="hljs-params">element: <span class="hljs-built_in">string</span>, container: HTMLElement</span>) </span>&#123;<br>  container.innerHTML = element;<br>&#125;<br><br>reactDomRender(<span class="hljs-string">&quot;&lt;h1&gt;hello TypeScript&lt;/h1&gt;&quot;</span>, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;root&quot;</span>));<br></code></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-comment">// 新建一个 index.ts</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reactDomRender</span>(<span class="hljs-params">element: HTMLElement, container: HTMLElement</span>) </span>&#123;<br>  container.innerHTML = <span class="hljs-string">&quot;&quot;</span>;<br>  container.appendChild(element);<br>&#125;<br><br><span class="hljs-keyword">const</span> tag = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&quot;h1&quot;</span>);<br><span class="hljs-keyword">const</span> content = <span class="hljs-built_in">document</span>.createTextNode(<span class="hljs-string">&quot;hello TypeScript&quot;</span>);<br>tag.appendChild(content);<br><br>reactDomRender(tag, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;root&quot;</span>));<br></code></pre></td></tr></table></figure>
 <ol start="3">
 <li>编译此文件 <code>tsc index.ts</code> 生成对应的 js 文件，刷新页面控制台报错：</li>
 </ol>
@@ -253,8 +251,8 @@
 <ol>
 <li>新建一个文件 <code>runtime/jsx-runtime.ts</code>,将 reactDomRender export 出来</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//runtime/jsx-runtime.ts</span><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reactDomRender</span>(<span class="hljs-params">element: string, container: Element</span>) </span>&#123;<br>  container.innerHTML = element;<br>&#125;<br></code></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// index.ts</span><br><span class="hljs-keyword">import</span> &#123; reactDomRender &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../runtime/jsx-runtime&quot;</span>;<br>reactDomRender(<span class="hljs-string">&quot;&lt;h1&gt;11&lt;/h1&gt;&quot;</span>, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;root&quot;</span>));<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//runtime/jsx-runtime.ts</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reactDomRender</span>(<span class="hljs-params">element: HTMLElement, container: HTMLElement</span>) </span>&#123;<br>  container.innerHTML = <span class="hljs-string">&quot;&quot;</span>;<br>  container.appendChild(element);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// index.ts</span><br><span class="hljs-keyword">import</span> &#123; reactDomRender &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../runtime/jsx-runtime&quot;</span>;<br><br><span class="hljs-keyword">const</span> tag = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&quot;h1&quot;</span>);<br><span class="hljs-keyword">const</span> content = <span class="hljs-built_in">document</span>.createTextNode(<span class="hljs-string">&quot;hello TypeScript&quot;</span>);<br>tag.appendChild(content);<br><br>reactDomRender(tag, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;root&quot;</span>));<br></code></pre></td></tr></table></figure>
 <p>执行编译<code>tsc src/index.ts</code>,会发现两个文件都生成了对应的 js 文件</p>
 <ol start="2">
 <li>浏览器报错</li>
@@ -303,7 +301,7 @@
                     
                       <a href="/2021/02/27/build-your-own-react2/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">用 TypeScript 实现 React （二）———— JSX 的编译</span>
+                        <span class="hidden-mobile">用 TypeScript 实现 React （二）——— JSX 的编译</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
