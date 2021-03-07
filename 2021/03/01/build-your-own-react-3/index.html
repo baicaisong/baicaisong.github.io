@@ -15,12 +15,14 @@
   
   <meta name="theme-color" content="#2f4154">
   
-    <meta name="description" content="">
+    <meta name="description" content="
+React DOM 会将元素和它的子元素与它们之前的状态进行比较，并只会进行必要的更新来使 DOM 达到预期的状态。
+">
   
   <meta name="author" content="Song">
   <meta name="keywords" content="">
   
-  <title>用 TypeScript 实现 React （三）——— Virtual DOM 和diff - 宋宋的小天地</title>
+  <title>用 TypeScript 实现 React （三）——— Virtual DOM 和 diff - 宋宋的小天地</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -141,7 +143,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="用 TypeScript 实现 React （三）——— Virtual DOM 和diff">
+            <span class="h2" id="subtitle" title="用 TypeScript 实现 React （三）——— Virtual DOM 和 diff">
               
             </span>
 
@@ -203,7 +205,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">用 TypeScript 实现 React （三）——— Virtual DOM 和diff</h1>
+            <h1 style="display: none">用 TypeScript 实现 React （三）——— Virtual DOM 和 diff</h1>
             
               <p class="note note-info">
                 
@@ -212,15 +214,18 @@
               </p>
             
             <div class="markdown-body">
-              <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
-<li><a target="_blank" rel="noopener" href="http://localhost:5000/2021/02/27/build-your-own-react/">从 HTML 开始</a></li>
-<li><a target="_blank" rel="noopener" href="https://baicaisong.github.io/2021/02/27/build-your-own-react2/">JSX 的编译</a><br>…</li>
-</ol>
-<p>以下是第三节的内容：Virtual DOM</p>
-<h2 id="只更新差异的部分"><a href="#只更新差异的部分" class="headerlink" title="只更新差异的部分"></a>只更新差异的部分</h2><blockquote>
+              <blockquote>
 <p>React DOM 会将元素和它的子元素与它们之前的状态进行比较，并只会进行必要的更新来使 DOM 达到预期的状态。</p>
 </blockquote>
-<p><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/rendering-elements.html#react-only-updates-whats-necessary">React</a>也提供了一个<a target="_blank" rel="noopener" href="https://codepen.io/pen?&editors=0010">案例</a>来说明：</p>
+<a id="more"></a>
+
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://baicaisong.github.io/2021/02/27/build-your-own-react/">从 HTML 开始</a></li>
+<li><a target="_blank" rel="noopener" href="https://baicaisong.github.io/2021/02/27/build-your-own-react-2/">JSX 的编译</a></li>
+<li><a target="_blank" rel="noopener" href="https://baicaisong.github.io/2021/03/01/build-your-own-react-3/">Virtual DOM 和 diff</a><br>…</li>
+</ol>
+<p>以下是第三节的内容：Virtual DOM 和 diff</p>
+<h2 id="只更新差异的部分"><a href="#只更新差异的部分" class="headerlink" title="只更新差异的部分"></a>只更新差异的部分</h2><p><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/rendering-elements.html#react-only-updates-whats-necessary">React</a>也提供了一个<a target="_blank" rel="noopener" href="https://codepen.io/pen?&editors=0010">案例</a>来说明：</p>
 <p><img src="https://i.loli.net/2021/03/01/biGQER3NJWLUFhK.gif" srcset="/img/loading.gif" alt="每次只重新渲染文本节点"></p>
 <p>使用我们编写的 reactDomRender 来调用此案例中的 tick 函数试试：</p>
 <p><img src="https://i.loli.net/2021/03/01/Y5Dw67pujEZsVLf.gif" srcset="/img/loading.gif" alt="每次都重建整颗 DOM 树"></p>
@@ -306,7 +311,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/27/build-your-own-react2/">
+                      <a href="/2021/02/27/build-your-own-react-2/">
                         <span class="hidden-mobile">用 TypeScript 实现 React （二）——— JSX 的编译</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
