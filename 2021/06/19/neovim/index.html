@@ -1,0 +1,484 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
+    <meta name="description" content="最近对 vim 起了兴趣，一方面是不想被 vscode 中很多不必要的功能束缚，一方面是 使用 vscode 中的快捷键难免还是需要用到触控板,花了一天时间做了一下 neovim 的配置。">
+  
+  <meta name="author" content="Song">
+  <meta name="keywords" content="">
+  
+  <title>neovim 入门配置 - 宋宋的小天地</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="neovim 入门配置">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-06-19 16:28" pubdate>
+        June 19, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      19
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">neovim 入门配置</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：a few seconds ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>最近对 vim 起了兴趣，一方面是不想被 vscode 中很多不必要的功能束缚，一方面是 使用 vscode 中的快捷键难免还是需要用到触控板,花了一天时间做了一下 neovim 的配置。</p>
+<a id="more"></a>
+
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
+<li>输入<code>vimtuto</code>可以打开官方的《VIM 教程》，花 30 分钟了解一下最基本的操作，例如：</li>
+</ol>
+<ul>
+<li>命令模式下，退出 vim：<code>:q</code></li>
+<li>普通模式下，上下左右移动：<code>hjkl</code></li>
+</ul>
+<ol start="2">
+<li>安装<a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/wiki/Installing-Neovim">neovim</a><br>安装完成后<ul>
+<li><code>nvim</code>打开空文件</li>
+<li><code>nvim + [文件名]</code> 打开对应文件</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2021/06/19/HSe8ufhlGVrczpk.png" srcset="/img/loading.gif" alt="package.json"></p>
+<ol start="3">
+<li>mac 下会发现长按 hjkl 键无法持续移动光标<br>解决办法：在终端输入 <code>defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false</code>，重启 nvim</li>
+</ol>
+<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p>新建 neovim 的配置文件：<code>touch ~/.config/nvim/init.vim</code>，之后所有的配置项都会写在这里。</p>
+<p>例如写入<code>set number</code>并保存重启,可以显示行号。<br>我的配置如下，可以直接复制到 init.vim 文件下，双引号表示注释</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-comment">&quot; 不与Vi 兼容</span><br><span class="hljs-keyword">set</span> nocompatible<br><span class="hljs-comment">&quot; 语法高亮</span><br><span class="hljs-keyword">syntax</span> <span class="hljs-keyword">on</span><br><span class="hljs-comment">&quot; 显示行号</span><br><span class="hljs-keyword">set</span> <span class="hljs-keyword">number</span><br><span class="hljs-comment">&quot; 显示相对行号</span><br><span class="hljs-keyword">set</span> relativenumber<br><span class="hljs-comment">&quot; 换行</span><br><span class="hljs-keyword">set</span> wrap<br><span class="hljs-comment">&quot; 不在单词内部换行</span><br><span class="hljs-keyword">set</span> linebreak<br><span class="hljs-comment">&quot; 即时搜索预览</span><br><span class="hljs-keyword">set</span> incsearch<br><span class="hljs-comment">&quot; 编码格式</span><br><span class="hljs-keyword">set</span> encoding=utf-<span class="hljs-number">8</span><br><span class="hljs-comment">&quot; 设置默认进行大小写不敏感查找</span><br><span class="hljs-keyword">set</span> ignorecase<br><span class="hljs-comment">&quot; 如果有一个大写字母，则切换到大小写敏感查找</span><br><span class="hljs-keyword">set</span> smartcase<br></code></pre></td></tr></table></figure>
+<h2 id="Leader"><a href="#Leader" class="headerlink" title="Leader"></a>Leader</h2><p>Leader 可以通过自定义命令来执行各种命令</p>
+<h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><p>你可以将 Leader 设置为任何键，通常设置为</p>
+<ul>
+<li>空格<code>let mapleader=&quot; &quot;</code></li>
+<li>或逗号<code>let mapleader=&quot;,&quot;</code></li>
+</ul>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>例如<code>nmap &lt;Leader&gt;q :q&lt;CR&gt;</code>表示 normal 模式下，按下空格和 q，等于原本<code>:q</code>的操作，也就是退出 nvim</p>
+<p>我设置了空格为 leader</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-comment">&quot; set leader</span><br><span class="hljs-keyword">let</span> mapleader=<span class="hljs-string">&quot; &quot;</span><br><span class="hljs-keyword">nmap</span> <span class="hljs-symbol">&lt;leader&gt;</span><span class="hljs-keyword">w</span> :<span class="hljs-keyword">w</span><span class="hljs-symbol">&lt;CR&gt;</span><br><span class="hljs-keyword">nmap</span> <span class="hljs-symbol">&lt;leader&gt;</span>q :q<span class="hljs-symbol">&lt;CR&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="安装第一个插件"><a href="#安装第一个插件" class="headerlink" title="安装第一个插件"></a>安装第一个插件</h2><p>使用 <a target="_blank" rel="noopener" href="https://i.loli.net/2021/06/19/kKRJBgtSLXOM5z8.png">vim-plug</a> 来管理其他插件</p>
+<p>只需要在 begin 和 end 中写入 github 上对应的<code>Plug &#39;[github user name]/[github repo name]</code>就表示要安装此插件，例如:</p>
+<figure class="highlight leaf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs leaf">call plug<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">begin</span><span class="hljs-params">()</span></span><br>Plug &#x27;mhinz/vim-startify&#x27;<br>call plug<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">end</span><span class="hljs-params">()</span></span><br></code></pre></td></tr></table></figure>
+<p>表示将安装<code>https://github.com/mhinz/vim-startify</code><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-startify">这个插件</a>,它可以在 nvim 启动时打开一个新页面，提供之前打开过的页面的快捷入口</p>
+<p>接着进入 nvim 并安装插件：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elixir">nvim<br><span class="hljs-symbol">:PlugInstall</span><br></code></pre></td></tr></table></figure>
+<p>完成后重启 nvim，即可看到效果。</p>
+<h2 id="Theme"><a href="#Theme" class="headerlink" title="Theme"></a>Theme</h2><p>折腾 vim 的第一件事就是要找一个好看的主题！<br>我选了</p>
+<ul>
+<li><code>Plug &#39;sainnhe/everforest&#39;</code>，是一套森林风格的主题配色，你可以选择你喜欢的主题</li>
+<li><code>Plug &#39;itchyny/lightline.vim&#39;</code>，状态栏修改</li>
+</ul>
+<p>这个主题还需要开启真彩色</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-comment">&quot; 开启真彩色</span><br><span class="hljs-keyword">set</span> termguicolors<br><span class="hljs-comment">&quot; 选择主题</span><br><span class="hljs-keyword">colorscheme</span> everforest<br><span class="hljs-comment">&quot; 选择wombat风格状态栏</span><br><span class="hljs-keyword">let</span> <span class="hljs-variable">g:lightline</span> = &#123;<br>      \ <span class="hljs-string">&#x27;colorscheme&#x27;</span>: <span class="hljs-string">&#x27;wombat&#x27;</span>,<br>      \ &#125;<br></code></pre></td></tr></table></figure>
+<h2 id="NERDTree"><a href="#NERDTree" class="headerlink" title="NERDTree"></a>NERDTree</h2><p>文件树插件<br><code>Plug &#39;preservim/NERDTree&#39;</code><br>其他配置：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-comment">&quot; **** NERDTree</span><br><span class="hljs-comment">&quot; 显示隐藏文件</span><br><span class="hljs-keyword">let</span> NERDTreeShowHidden=<span class="hljs-number">1</span><br><span class="hljs-comment">&quot; 显隐文件树</span><br><span class="hljs-keyword">nmap</span> <span class="hljs-symbol">&lt;Leader&gt;</span>t :NERDTreeToggle<span class="hljs-symbol">&lt;CR&gt;</span><br><span class="hljs-comment">&quot; 关闭提示：Press ? for help</span><br><span class="hljs-keyword">let</span> NERDTreeMinimalUI = <span class="hljs-number">1</span><br><span class="hljs-keyword">let</span> NERDTreeDirArrows = <span class="hljs-number">1</span><br><span class="hljs-comment">&quot; 打开一个文件时，自动关闭 NerdTree</span><br><span class="hljs-keyword">let</span> NERDTreeQuitOnOpen = <span class="hljs-number">1</span><br><span class="hljs-comment">&quot; 关闭vim时，如果打开的文件除了NERDTree没有其他文件时，它自动关闭，减少多次按:q!</span><br><span class="hljs-keyword">autocmd</span> bufenter * <span class="hljs-keyword">if</span> (<span class="hljs-built_in">winnr</span>(<span class="hljs-string">&quot;$&quot;</span>) == <span class="hljs-number">1</span> &amp;&amp; <span class="hljs-built_in">exists</span>(<span class="hljs-string">&quot;b:NERDTreeType&quot;</span>) &amp;&amp;<span class="hljs-variable">b:NERDTreeType</span> == <span class="hljs-string">&quot;primary&quot;</span>) | q | <span class="hljs-keyword">endif</span><br><span class="hljs-comment">&quot; 进入nvim时，自动打开nerdtree和startify</span><br><span class="hljs-keyword">autocmd</span> VimEnter *<br>                \   <span class="hljs-keyword">if</span> !argc()<br>                \ |   Startify<br>                \ |   NERDTree<br>                \ | <span class="hljs-keyword">endif</span><br></code></pre></td></tr></table></figure>
+<h2 id="COC"><a href="#COC" class="headerlink" title="COC"></a>COC</h2><p><code>Plug &#39;neoclide/coc.nvim&#39;, &#123;&#39;branch&#39;: &#39;release&#39;&#125;</code><br>官方默认给了一份配置，可以选择自己需要的部分加入，我选择了以下：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-comment">&quot; coc</span><br><span class="hljs-keyword">nmap</span> <span class="hljs-symbol">&lt;leader&gt;</span>rn <span class="hljs-symbol">&lt;Plug&gt;</span>(coc-<span class="hljs-built_in">rename</span>)<br><span class="hljs-keyword">nmap</span> <span class="hljs-symbol">&lt;silent&gt;</span> <span class="hljs-keyword">gr</span> <span class="hljs-symbol">&lt;Plug&gt;</span>(coc-references)<br><span class="hljs-keyword">nmap</span> <span class="hljs-symbol">&lt;silent&gt;</span> gd :<span class="hljs-keyword">call</span> CocAction(<span class="hljs-string">&#x27;jumpDefinition&#x27;</span>, <span class="hljs-string">&#x27;tab drop&#x27;</span>) <span class="hljs-symbol">&lt;CR&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="TypeScript-补全"><a href="#TypeScript-补全" class="headerlink" title="TypeScript 补全"></a>TypeScript 补全</h3><p>coc.nvim 只是一个平台，可以在上面安装语言插件<br>如果想要 TypeScript 补全可以安装<a target="_blank" rel="noopener" href="https://github.com/neoclide/coc-tsserver">coc-tsserver</a>。</p>
+<ul>
+<li>安装<br><code>:CocInstall coc-tsserver</code></li>
+<li>配置<br><code>:CocConfig</code></li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;tsserver.tsdk&quot;</span>: <span class="hljs-string">&quot;.yarn/sdks/typescript/lib&quot;</span>,<br>  <span class="hljs-attr">&quot;eslint.packageManager&quot;</span>: <span class="hljs-string">&quot;yarn&quot;</span>,<br>  <span class="hljs-attr">&quot;eslint.nodePath&quot;</span>: <span class="hljs-string">&quot;.yarn/sdks&quot;</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h2 id="Prettier"><a href="#Prettier" class="headerlink" title="Prettier"></a>Prettier</h2><ul>
+<li>安装<br><code>:CocInstall coc-prettier</code></li>
+<li>配置<br><code>command! -nargs=0 Prettier :CocCommand prettier.formatFile</code></li>
+</ul>
+<p>执行<code>:Prettier</code>就可以格式化文件。</p>
+<h3 id="保存时自动格式化"><a href="#保存时自动格式化" class="headerlink" title="保存时自动格式化"></a>保存时自动格式化</h3><p><code>CocConfig</code>：</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs prolog"><span class="hljs-string">&quot;coc.preferences.formatOnSaveFiletypes&quot;</span>: [<br>  <span class="hljs-string">&quot;javascript&quot;</span>,<br>  <span class="hljs-string">&quot;typescript&quot;</span>,<br>  <span class="hljs-string">&quot;typescriptreact&quot;</span>,<br>  <span class="hljs-string">&quot;json&quot;</span>,<br>  <span class="hljs-string">&quot;javascriptreact&quot;</span>,<br>  <span class="hljs-string">&quot;css&quot;</span>,<br>  <span class="hljs-string">&quot;Markdown&quot;</span>,<br>  <span class="hljs-string">&quot;md&quot;</span><br> ]<br></code></pre></td></tr></table></figure>
+<h3 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h3><p>格式化后会发现文件缩进不正常，prettier 的默认缩进是 2，而在 vim 中，tab 字符默认的显示宽度是 8 个空格，<br>为了保持一致，将 vim 中的 tab 用空格来表示，而等于 2 个空格</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-comment">&quot; 按一个tab之后，显示出来的相当于几个空格，默认的是8个</span><br><span class="hljs-keyword">set</span> tabstop=<span class="hljs-number">2</span><br><span class="hljs-comment">&quot; 在编辑模式的时候按退格键的时候退回缩进的长度</span><br><span class="hljs-keyword">set</span> softtabstop =<span class="hljs-number">2</span><br><span class="hljs-comment">&quot; 表示每一级缩进的长度，一般设置成跟 softtabstop 一样</span><br><span class="hljs-keyword">set</span> <span class="hljs-built_in">shiftwidth</span>=<span class="hljs-number">2</span><br><span class="hljs-comment">&quot; 当设置成 expandtab 时，缩进用空格来表示</span><br><span class="hljs-keyword">set</span> expandtab<br></code></pre></td></tr></table></figure>
+<h2 id="FZF"><a href="#FZF" class="headerlink" title="FZF"></a>FZF</h2><p>文件查找</p>
+<figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sml"><span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;junegunn</span>/fzf&#x27;, &#123; <span class="hljs-symbol">&#x27;do&#x27;</span>: &#123; -&gt; fzf#install<span class="hljs-literal">()</span> &#125; &#125;<br><span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;junegunn</span>/fzf.vim&#x27;<br></code></pre></td></tr></table></figure>
+<p><code>:FZF</code> 会在所有文件里查找，但是很多时候想排除一些文件，例如 node_modules 。<br>可以使用 <code>:GFiles</code>，会排除在 .gitignore 里的文件，缺点是新建的文件不会被搜索到，<code>git add</code>该文件后可以被搜索到</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-comment">&quot; 在所有文件里查找</span><br><span class="hljs-keyword">nmap</span> <span class="hljs-symbol">&lt;Leader&gt;</span>ff :FZF<span class="hljs-symbol">&lt;CR&gt;</span><br><span class="hljs-comment">&quot; 查找不在 .gitignore 里的其他文件</span><br><span class="hljs-keyword">nmap</span> <span class="hljs-symbol">&lt;silent&gt;</span><span class="hljs-symbol">&lt;Leader&gt;</span><span class="hljs-keyword">f</span> :GFiles<span class="hljs-symbol">&lt;CR&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="其他插件"><a href="#其他插件" class="headerlink" title="其他插件"></a>其他插件</h2><figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sml"><span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;leafgarland</span>/typescript-vim&#x27;<br><span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;peitalin</span>/vim-jsx-typescript&#x27;<br><span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;honza</span>/vim-snippets&#x27;<br><span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;easymotion</span>/vim-easymotion&#x27;<br><span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;preservim</span>/nerdcommenter&#x27;<br><span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;christoomey</span>/vim-tmux-navigator&#x27;<br><span class="hljs-type">Plug</span> <span class="hljs-symbol">&#x27;ap</span>/vim-css-color&#x27;<br></code></pre></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/13/superellipse/">
+                        <span class="hidden-mobile">用 SVG 和 CSS 绘制超椭圆</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
